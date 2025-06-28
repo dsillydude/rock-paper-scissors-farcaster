@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Monad Theme */
+:root {
+  --monad-50: #f8f4ff;
+  --monad-100: #f0e6ff;
+  --monad-200: #e4d1ff;
+  --monad-300: #d1b0ff;
+  --monad-400: #b885ff;
+  --monad-500: #9d5aff;
+  --monad-600: #8b3dff;
+  --monad-700: #7c2dff;
+  --monad-800: #6b1fff;
+  --monad-900: #5a0fff;
+  --monad-950: #3d0099;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(135deg, var(--monad-900) 0%, var(--monad-800) 50%, #581c87 100%);
+  min-height: 100vh;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--monad-500), var(--monad-600));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--monad-400), var(--monad-500));
+}
+
+/* Selection Styles */
+::selection {
+  background-color: var(--monad-500);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--monad-500);
+  color: white;
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--monad-400);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(157, 90, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(157, 90, 255, 0.8), 0 0 30px rgba(157, 90, 255, 0.6);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Utility Classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Glass Morphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--monad-300), var(--monad-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-light {
+  background: linear-gradient(135deg, var(--monad-200), var(--monad-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-monad {
+  background: linear-gradient(135deg, var(--monad-600), var(--monad-700));
+  border: 1px solid rgba(157, 90, 255, 0.3);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-monad:hover {
+  background: linear-gradient(135deg, var(--monad-500), var(--monad-600));
+  box-shadow: 0 10px 25px rgba(157, 90, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-monad:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(157, 90, 255, 0.2);
+}
+
+/* Card Styles */
+.card-monad {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card-monad:hover {
+  background: linear-gradient(135deg, rgba(157, 90, 255, 0.1), rgba(157, 90, 255, 0.05));
+  border-color: rgba(157, 90, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(157, 90, 255, 0.1);
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(157, 90, 255, 0.3);
+  border-top: 4px solid var(--monad-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design Helpers */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .heading-responsive {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+  }
+}
+
+/* Dark Mode Optimizations */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .card-monad {
+    border-width: 2px;
+  }
+
+  .btn-monad {
+    border-width: 2px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Properties for Dynamic Theming */
+.theme-monad {
+  --primary: var(--monad-500);
+  --primary-foreground: white;
+  --secondary: var(--monad-100);
+  --secondary-foreground: var(--monad-900);
+  --accent: var(--monad-300);
+  --accent-foreground: var(--monad-900);
+  --background: var(--monad-950);
+  --foreground: var(--monad-50);
+  --muted: var(--monad-800);
+  --muted-foreground: var(--monad-300);
+  --border: rgba(157, 90, 255, 0.2);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--monad-400);
+}
+
+/* Accessibility Improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Indicators for Keyboard Navigation */
+.focus-visible:focus {
+  outline: 2px solid var(--monad-400);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar for Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--monad-500) rgba(255, 255, 255, 0.1);
+}

@@ -5,8 +5,8 @@ const nextConfig = {
   },
   images: {
     domains: ['localhost'],
-    unoptimized: true
   },
+  // Farcaster mini app specific configurations
   async headers() {
     return [
       {
@@ -14,16 +14,16 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'ALLOWALL',
           },
           {
             key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://*.farcaster.xyz https://*.warpcast.com"
-          }
-        ]
-      }
-    ]
-  }
-}
+            value: "frame-ancestors 'self' https://*.farcaster.xyz https://*.warpcast.com;",
+          },
+        ],
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

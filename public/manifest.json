@@ -1,0 +1,29 @@
+{
+  "name": "Rock Paper Scissors - Farcaster Mini App",
+  "short_name": "RPS Game",
+  "description": "A fun rock-paper-scissors game built for Farcaster with Monad purple theme",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#5a0fff",
+  "theme_color": "#9d5aff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
