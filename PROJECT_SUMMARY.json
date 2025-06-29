@@ -1,0 +1,63 @@
+{
+  "project_name": "Rock Paper Scissors - Farcaster Mini App",
+  "version": "1.0.0",
+  "created_date": "2025-06-29T14:28:45.043264",
+  "target_url": "https://rock-paper-scissors-farcaster-lv5m.vercel.app",
+  "description": "Classic Rock Paper Scissors game with Monad purple theme, integrated as a Farcaster Mini App",
+  "features": [
+    "Classic Rock Paper Scissors gameplay",
+    "Monad purple theme",
+    "Farcaster Mini App integration",
+    "User context detection",
+    "Auto-sharing wins to Farcaster",
+    "Score tracking and game history",
+    "Framer Motion animations",
+    "Mobile-optimized responsive design"
+  ],
+  "technical_stack": {
+    "framework": "Next.js 14",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS",
+    "animations": "Framer Motion",
+    "integration": "Farcaster SDK"
+  },
+  "file_structure": {
+    "app/": [
+      "layout.tsx",
+      "page.tsx",
+      "globals.css",
+      "api/farcaster-manifest/route.ts"
+    ],
+    "components/": [
+      "RockPaperScissorsGame.tsx"
+    ],
+    "lib/": [
+      "farcaster-context.tsx"
+    ],
+    "public/images/": [
+      "README.md (instructions for required images)"
+    ],
+    "config_files": [
+      "package.json",
+      "next.config.js",
+      "tailwind.config.js",
+      "postcss.config.js",
+      "tsconfig.json",
+      ".env.example"
+    ]
+  },
+  "setup_requirements": [
+    "Replace Farcaster manifest placeholders",
+    "Add required images (icon.png, splash.png, feed.png)",
+    "Configure environment variables",
+    "Install dependencies with npm/yarn",
+    "Deploy to Vercel",
+    "Test in Farcaster app"
+  ],
+  "critical_notes": [
+    "Images are REQUIRED for Farcaster functionality",
+    "Manifest placeholders must be replaced with real data",
+    "Mobile-first design for Farcaster frames",
+    "Frame security headers configured"
+  ]
+}

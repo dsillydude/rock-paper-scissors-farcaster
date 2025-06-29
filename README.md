@@ -1,445 +1,232 @@
-# 🎮 Rock Paper Scissors Farcaster Mini App
+# Rock Paper Scissors - Farcaster Mini App
 
-A modern, interactive rock-paper-scissors game built with Next.js 14, featuring a stunning Monad purple theme and seamless Farcaster integration.
+A classic Rock Paper Scissors game with Monad purple theme, integrated as a Farcaster Mini App.
 
-![Rock Paper Scissors Game](https://img.shields.io/badge/Game-Rock%20Paper%20Scissors-purple?style=for-the-badge)
-![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Farcaster](https://img.shields.io/badge/Farcaster-Mini%20App-8A63D2?style=for-the-badge)
+## 🎮 Features
 
-## 🌟 Features
-
-### 🎯 Core Game Features
-- **Interactive Gameplay**: Classic rock-paper-scissors with smooth animations
-- **Real-time Scoring**: Live score tracking with win rate calculations
-- **Game History**: Expandable history showing recent games with timestamps
-- **Smart AI**: Computer opponent with random choice generation
-- **Responsive Design**: Optimized for mobile, tablet, and desktop
-
-### 🎨 Visual Design
-- **Monad Purple Theme**: Beautiful gradient design inspired by Monad
-- **Glassmorphism Effects**: Modern frosted glass UI components
-- **Framer Motion Animations**: Smooth transitions and micro-interactions
-- **Custom Animations**: Floating elements, glow effects, and particle systems
-- **Mobile-First**: Responsive design that works perfectly on all devices
-
-### 🚀 Technical Features
-- **Next.js 14**: Latest App Router with server components
-- **TypeScript**: Full type safety throughout the application
-- **Tailwind CSS**: Utility-first styling with custom Monad theme
-- **Farcaster Integration**: Frame meta tags and mini app compatibility
-- **PWA Ready**: Progressive Web App capabilities
-- **SEO Optimized**: Open Graph, Twitter Cards, and meta tags
-- **Health Check API**: Built-in monitoring endpoint
-
-## 🛠️ Tech Stack
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Next.js** | 14.0.4 | React framework with App Router |
-| **React** | 18.2.0 | UI library |
-| **TypeScript** | 5.3.3 | Type safety |
-| **Tailwind CSS** | 3.3.6 | Styling framework |
-| **Framer Motion** | 10.16.16 | Animations |
-| **Lucide React** | 0.303.0 | Icon library |
-
-## 📁 Project Structure
-
-```
-rock-paper-scissors-farcaster/
-├── app/                          # Next.js 14 App Router
-│   ├── api/
-│   │   └── health/
-│   │       └── route.ts          # Health check endpoint
-│   ├── globals.css               # Global styles with Monad theme
-│   ├── layout.tsx                # Root layout with Farcaster integration
-│   └── page.tsx                  # Main game page
-├── components/                   # React components
-│   ├── GameChoice.tsx            # Interactive choice buttons
-│   ├── RockPaperScissorsGame.tsx # Main game component
-│   └── ScoreBoard.tsx            # Score display with history
-├── lib/                          # Utility libraries
-│   ├── game-logic.ts             # Game logic and rules
-│   └── utils.ts                  # Helper functions
-├── types/                        # TypeScript type definitions
-│   └── game.ts                   # Game-related types
-├── public/                       # Static assets
-├── .env.example                  # Environment variables template
-├── .gitignore                    # Git ignore rules
-├── next.config.js                # Next.js configuration
-├── package.json                  # Dependencies and scripts
-├── postcss.config.js             # PostCSS configuration
-├── tailwind.config.js            # Tailwind with Monad theme
-├── tsconfig.json                 # TypeScript configuration
-└── README.md                     # This file
-```
+- 🪨📄✂️ Classic Rock Paper Scissors gameplay
+- 🟣 Beautiful Monad purple theme
+- 📱 Farcaster Mini App integration
+- 👤 Farcaster user context
+- 🎉 Auto-share wins to Farcaster
+- 📊 Score tracking and game history
+- ✨ Smooth animations with Framer Motion
+- 📱 Mobile-optimized responsive design
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 1. Install Dependencies
 
-- **Node.js** 18.0.0 or higher
-- **npm** or **yarn** package manager
-- **Git** for version control
+```bash
+npm install
+# or
+yarn install
+```
 
-### Installation
+### 2. Environment Variables
 
-1. **Clone or extract the project**:
-   ```bash
-   # If using Git
-   git clone <repository-url>
-   cd rock-paper-scissors-farcaster
+Create a `.env.local` file:
 
-   # If using ZIP file
-   unzip rock-paper-scissors-farcaster.zip
-   cd rock-paper-scissors-farcaster
-   ```
+```env
+NEXT_PUBLIC_URL=https://rock-paper-scissors-farcaster-lv5m.vercel.app
+NEXT_PUBLIC_APP_NAME="Rock Paper Scissors"
+NEXT_PUBLIC_APP_DESCRIPTION="Classic Rock Paper Scissors game with Monad purple theme"
+```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+### 3. Development
 
-3. **Set up environment variables**:
-   ```bash
-   cp .env.example .env.local
-   ```
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-   Edit `.env.local` with your configuration:
-   ```env
-   NEXT_PUBLIC_APP_NAME=Rock Paper Scissors
-   NEXT_PUBLIC_APP_DESCRIPTION=A fun rock-paper-scissors game for Farcaster
-   NEXT_PUBLIC_APP_URL=https://your-domain.com
-   ```
+## 🔧 Farcaster Integration Setup
 
-4. **Run the development server**:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+### Critical Setup Steps
 
-5. **Open your browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
+1. **Update Manifest**: Replace placeholders in `app/api/farcaster-manifest/route.ts`
+   - Replace `PLACEHOLDER_HEADER_TO_BE_REPLACED`
+   - Replace `PLACEHOLDER_PAYLOAD_TO_BE_REPLACED`  
+   - Replace `PLACEHOLDER_SIGNATURE_TO_BE_REPLACED`
 
-## 🎮 How to Play
+2. **Add Required Images**: Place in `public/images/`
+   - `icon.png` - App icon (256x256px)
+   - `splash.png` - Splash screen (1200x630px)
+   - `feed.png` - Feed preview (1200x630px)
 
-1. **Choose Your Move**: Click on Rock (🪨), Paper (📄), or Scissors (✂️)
-2. **Watch the Battle**: See your choice face off against the computer
-3. **View Results**: Win, lose, or tie - results are displayed instantly
-4. **Track Progress**: Monitor your score and win rate
-5. **Review History**: Expand the game history to see recent matches
-6. **Play Again**: Use "Play Again" or "Reset Game" buttons
+3. **Deploy and Test**: Deploy to Vercel and test in Farcaster
 
-### Game Rules
-- **Rock** beats **Scissors** 🪨 ✂️
-- **Scissors** beats **Paper** ✂️ 📄  
-- **Paper** beats **Rock** 📄 🪨
-- Same choices result in a **Tie** 🤝
+## 📱 Farcaster Mini App Features
+
+- **User Context**: Displays Farcaster user info when authenticated
+- **Auto-sharing**: Wins are automatically shared to user's Farcaster feed
+- **Frame Integration**: Proper frame metadata for Farcaster embedding
+- **Responsive Design**: Works perfectly in Farcaster's mobile interface
+- **Safe Area Support**: Proper mobile viewport handling
+
+## 📁 File Structure
+
+```
+├── app/
+│   ├── api/farcaster-manifest/route.ts  # Farcaster manifest endpoint
+│   ├── layout.tsx                       # Root layout with providers
+│   ├── page.tsx                         # Main page
+│   └── globals.css                      # Global styles
+├── components/
+│   └── RockPaperScissorsGame.tsx       # Main game component
+├── lib/
+│   └── farcaster-context.tsx           # Farcaster context provider
+├── public/images/                       # App images (REQUIRED)
+│   ├── icon.png                         # App icon
+│   ├── splash.png                       # Splash screen
+│   └── feed.png                         # Feed preview
+└── Configuration files (package.json, next.config.js, etc.)
+```
 
 ## 🎨 Customization
 
-### Theme Customization
+- **Colors**: Modify the purple theme in `tailwind.config.js`
+- **Game Logic**: Update game rules in `RockPaperScissorsGame.tsx`
+- **Sharing Messages**: Customize win messages in the game component
+- **Animations**: Adjust Framer Motion animations as needed
 
-The Monad purple theme is defined in `tailwind.config.js`:
+## 🚀 Deployment
 
-```javascript
-colors: {
-  monad: {
-    50: '#f8f4ff',
-    100: '#f0e6ff',
-    200: '#e4d1ff',
-    300: '#d1b0ff',
-    400: '#b885ff',
-    500: '#9d5aff',  // Primary color
-    600: '#8b3dff',
-    700: '#7c2dff',
-    800: '#6b1fff',
-    900: '#5a0fff',
-    950: '#3d0099',
-  }
-}
-```
+### Vercel Deployment
 
-### Component Customization
+1. Push to GitHub repository
+2. Connect to Vercel
+3. Set environment variables in Vercel dashboard
+4. Deploy and test
 
-- **Game Logic**: Modify `lib/game-logic.ts` for rule changes
-- **Animations**: Adjust Framer Motion settings in components
-- **Styling**: Update Tailwind classes for visual changes
-- **Game State**: Extend `types/game.ts` for new features
+### Critical Deployment Checklist
 
-## 🌐 Deployment
+- [ ] All environment variables set in production
+- [ ] Farcaster manifest placeholders replaced with real data
+- [ ] All three required images added to public/images/
+- [ ] Frame integration tested in Farcaster
+- [ ] Mobile responsiveness verified
 
-### Vercel (Recommended)
+## ⚠️ Important Notes
 
-1. **Push to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
+- **Images are REQUIRED**: The app will not work in Farcaster without proper images
+- **Manifest Configuration**: Replace all placeholder values before deployment
+- **Mobile First**: Designed specifically for Farcaster's mobile interface
+- **Frame Security**: Configured with proper headers for frame embedding
 
-2. **Deploy to Vercel**:
-   - Visit [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Configure environment variables
-   - Deploy automatically
+## 🛠️ Technical Details
 
-3. **Configure Domain**:
-   - Add custom domain in Vercel dashboard
-   - Update `NEXT_PUBLIC_APP_URL` environment variable
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS with custom purple theme
+- **Animations**: Framer Motion for smooth interactions
+- **State Management**: React Context API for Farcaster integration
+- **TypeScript**: Full type safety throughout the application
 
-### Netlify
+## 🔗 Farcaster Integration Details
 
-1. **Build the project**:
-   ```bash
-   npm run build
-   ```
+### Manifest Configuration
 
-2. **Deploy to Netlify**:
-   - Drag and drop the `.next` folder to Netlify
-   - Or connect your GitHub repository
-   - Configure build settings: `npm run build`
-   - Set publish directory: `.next`
+The app includes a Farcaster manifest at `/.well-known/farcaster.json` that provides:
 
-### Docker Deployment
+- Account association data (requires real values)
+- Frame configuration with proper URLs
+- App metadata (name, icons, splash screen)
 
-1. **Create Dockerfile**:
-   ```dockerfile
-   FROM node:18-alpine
-   WORKDIR /app
-   COPY package*.json ./
-   RUN npm ci --only=production
-   COPY . .
-   RUN npm run build
-   EXPOSE 3000
-   CMD ["npm", "start"]
-   ```
+### User Context Integration
 
-2. **Build and run**:
-   ```bash
-   docker build -t rock-paper-scissors .
-   docker run -p 3000:3000 rock-paper-scissors
-   ```
+The `FarcasterProvider` component:
 
-## 🔧 Development
+- Detects when running in Farcaster frames
+- Requests user data from parent frame
+- Provides authentication state
+- Enables composeCast functionality
 
-### Available Scripts
+### Auto-sharing Feature
 
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript compiler
-```
+When a user wins a game:
 
-### Development Workflow
+- Automatically composes a cast with the win details
+- Includes @monad mention for branding
+- Uses Farcaster's composeCast API
 
-1. **Start development server**: `npm run dev`
-2. **Make changes**: Edit files in `app/`, `components/`, or `lib/`
-3. **Test changes**: View at `http://localhost:3000`
-4. **Type checking**: Run `npm run type-check`
-5. **Linting**: Run `npm run lint`
-6. **Build test**: Run `npm run build`
+## 🎮 Game Features
 
-### Adding New Features
+### Core Gameplay
 
-1. **Game Features**: Extend `lib/game-logic.ts`
-2. **UI Components**: Add to `components/` directory
-3. **Types**: Define in `types/` directory
-4. **Styles**: Use Tailwind classes or extend `globals.css`
-5. **API Routes**: Add to `app/api/` directory
+- Classic Rock Paper Scissors rules
+- Player vs Computer matches
+- Real-time score tracking
+- Animated choice reveals
+- Win/lose/tie result display
 
-## 🔌 Farcaster Integration
+### Enhanced Features
 
-### Frame Configuration
+- Game history tracking (last 5 games)
+- Smooth Framer Motion animations
+- Purple Monad theme throughout
+- Responsive design for all devices
+- Reset functionality
 
-The app includes Farcaster Frame meta tags in `app/layout.tsx`:
+## 📱 Mobile Optimization
 
-```typescript
-// Farcaster Frame metadata
-other: {
-  'fc:frame': 'vNext',
-  'fc:frame:image': '/og-image.png',
-  'fc:frame:button:1': 'Play Game',
-  'fc:frame:button:1:action': 'link',
-  'fc:frame:button:1:target': process.env.NEXT_PUBLIC_APP_URL,
-}
-```
+- Optimized for Farcaster's mobile interface
+- Touch-friendly button sizes
+- Proper safe area handling
+- Responsive grid layouts
+- Mobile-first design approach
 
-### Mini App Features
+## 🔒 Security & Privacy
 
-- **Frame Compatibility**: Works within Farcaster frames
-- **Mobile Optimized**: Perfect for mobile Farcaster clients
-- **Social Sharing**: Optimized Open Graph tags
-- **Cross-Origin**: Configured for iframe embedding
-
-## 📊 API Endpoints
-
-### Health Check
-
-**GET** `/api/health`
-
-Returns application health status and system information.
-
-**Response Example**:
-```json
-{
-  "status": "healthy",
-  "timestamp": "2024-01-15T10:30:00.000Z",
-  "uptime": 3600,
-  "version": "1.0.0",
-  "environment": "production",
-  "features": [
-    "Rock Paper Scissors Game",
-    "Score Tracking",
-    "Game History",
-    "Responsive Design",
-    "Farcaster Integration"
-  ]
-}
-```
-
-## 🎯 Performance
-
-### Optimization Features
-
-- **Next.js 14**: Latest performance optimizations
-- **Server Components**: Reduced client-side JavaScript
-- **Image Optimization**: Automatic image optimization
-- **Font Optimization**: Google Fonts optimization
-- **Code Splitting**: Automatic code splitting
-- **Caching**: Optimized caching strategies
-
-### Performance Metrics
-
-- **Lighthouse Score**: 95+ across all categories
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-- **Time to Interactive**: < 3s
-
-## 🔒 Security
-
-### Security Features
-
-- **Content Security Policy**: Configured for Farcaster
-- **HTTPS Only**: Secure connections required
-- **Input Validation**: All user inputs validated
-- **XSS Protection**: Built-in Next.js protections
-- **CSRF Protection**: API route protections
-
-### Environment Variables
-
-Store sensitive data in environment variables:
-
-```env
-# Required
-NEXT_PUBLIC_APP_URL=https://your-domain.com
-
-# Optional
-NEXT_PUBLIC_ANALYTICS_ID=your-analytics-id
-```
+- Frame-safe headers configured
+- CORS properly set up for API access
+- No sensitive data collection
+- Secure frame embedding
+- Privacy-focused user context
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-**1. Build Errors**
-```bash
-# Clear Next.js cache
-rm -rf .next
-npm run build
-```
+1. **Images not loading**: Ensure all three images are in `public/images/`
+2. **Frame not embedding**: Check manifest configuration and headers
+3. **User context not working**: Verify Farcaster frame detection
+4. **Styling issues**: Confirm Tailwind CSS is properly configured
 
-**2. Type Errors**
-```bash
-# Run type checking
-npm run type-check
-```
+### Development Tips
 
-**3. Styling Issues**
-```bash
-# Rebuild Tailwind
-npm run dev
-```
+- Use browser dev tools to test frame embedding
+- Check console for Farcaster frame messages
+- Test on mobile devices for best experience
+- Verify all environment variables are set
 
-**4. Font Loading Issues**
-- Fonts are configured with fallbacks
-- Check network connectivity
-- Verify font files in `public/` directory
+## 📚 Resources
 
-### Debug Mode
-
-Enable debug logging:
-
-```env
-DEBUG=true
-NODE_ENV=development
-```
+- [Farcaster Documentation](https://docs.farcaster.xyz/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
 
 ## 🤝 Contributing
 
-### Development Setup
-
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make changes and test thoroughly
-4. Commit changes: `git commit -m 'Add amazing feature'`
-5. Push to branch: `git push origin feature/amazing-feature`
-6. Open a Pull Request
-
-### Code Standards
-
-- **TypeScript**: Use strict type checking
-- **ESLint**: Follow configured linting rules
-- **Prettier**: Use consistent code formatting
-- **Testing**: Add tests for new features
-- **Documentation**: Update README for new features
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- **Next.js Team**: For the amazing React framework
-- **Tailwind CSS**: For the utility-first CSS framework
-- **Framer Motion**: For smooth animations
-- **Farcaster**: For the decentralized social protocol
-- **Monad**: For design inspiration
-- **Lucide**: For beautiful icons
-
-## 📞 Support
-
-### Getting Help
-
-- **Documentation**: Check this README first
-- **Issues**: Open a GitHub issue for bugs
-- **Discussions**: Use GitHub Discussions for questions
-- **Community**: Join the Farcaster developer community
-
-### Contact
-
-- **Project Maintainer**: [Your Name]
-- **Email**: [your-email@domain.com]
-- **Twitter**: [@your-twitter]
-- **Farcaster**: [@your-farcaster]
+- Monad for the beautiful purple theme inspiration
+- Farcaster team for the Mini App framework
+- React and Next.js communities for excellent tooling
 
 ---
 
-## 🚀 Quick Deploy Buttons
+**Ready to deploy your Rock Paper Scissors Farcaster Mini App!** 🎮🟣
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/rock-paper-scissors-farcaster)
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-username/rock-paper-scissors-farcaster)
-
----
-
-**Built with ❤️ for the Farcaster community**
-
-*Last updated: January 2024*
+For support or questions, please refer to the troubleshooting section or check the official documentation links above.
