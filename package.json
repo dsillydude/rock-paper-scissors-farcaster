@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@farcaster/core": "^0.18.1",
-    "@farcaster/frame-sdk": "^0.0.64",
+    "@farcaster/frame-sdk": "^0.2.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "^18",

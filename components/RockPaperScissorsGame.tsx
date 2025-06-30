@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useCallback, useEffect } from 'react';
@@ -8,14 +7,16 @@ import { getRandomChoice, determineWinner, getResultMessage, getResultColor } fr
 import { generateId } from '@/lib/utils';
 import GameChoiceComponent from './GameChoice';
 import ScoreBoard from './ScoreBoard';
-import { useFrame } from '@farcaster/frame-sdk';
+import { useRouter } from 'next/navigation';
 
 const RockPaperScissorsGame: React.FC = () => {
-  const { sdk } = useFrame();
+  const router = useRouter();
+  const [isFrame, setIsFrame] = useState(false);
 
   useEffect(() => {
-    sdk.actions.ready();
-  }, [sdk]);
+    // Detect if running in a Farcaster frame
+    setIsFrame(window.location !== window.parent.location);
+  }, []);
 
   const [gameState, setGameState] = useState<GameState>({
     playerChoice: null,
@@ -62,7 +63,7 @@ const RockPaperScissorsGame: React.FC = () => {
       result,
       playerScore: prev.playerScore + (result === 'win' ? 1 : 0),
       computerScore: prev.computerScore + (result === 'lose' ? 1 : 0),
-      gameHistory: [newRound, ...prev.gameHistory.slice(0, 9)], // Keep last 10 games
+      gameHistory: [newRound, ...prev.gameHistory.slice(0, 9)],
       isPlaying: false,
     }));
 
@@ -73,7 +74,12 @@ const RockPaperScissorsGame: React.FC = () => {
     setTimeout(() => {
       setShowResult(false);
     }, 3000);
-  }, [isAnimating]);
+
+    // If in frame, refresh to show new state
+    if (isFrame) {
+      router.refresh();
+    }
+  }, [isAnimating, isFrame, router]);
 
   const resetGame = useCallback(() => {
     setGameState({
@@ -100,6 +106,24 @@ const RockPaperScissorsGame: React.FC = () => {
     setShowResult(false);
     setIsAnimating(false);
   }, []);
+
+  if (isFrame) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Playing in Frame</h1>
+          <p className="text-xl">
+            {gameState.playerChoice ? `You chose: ${gameState.playerChoice}` : "Make your move!"}
+          </p>
+          {gameState.result && (
+            <p className={`text-2xl mt-4 ${getResultColor(gameState.result)}`}>
+              {getResultMessage(gameState.result)}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-monad-900 via-monad-800 to-purple-900 flex flex-col items-center justify-center p-4">
@@ -300,5 +324,3 @@ const RockPaperScissorsGame: React.FC = () => {
 };
 
 export default RockPaperScissorsGame;
-
-
