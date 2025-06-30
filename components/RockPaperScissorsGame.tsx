@@ -8,7 +8,7 @@ import { getRandomChoice, determineWinner, getResultMessage, getResultColor } fr
 import { generateId } from '@/lib/utils';
 import GameChoiceComponent from './GameChoice';
 import ScoreBoard from './ScoreBoard';
-import { useFrame } from '@farcaster/frame-sdk/react';
+import { useFrame } from '@farcaster/frame-sdk';
 
 const RockPaperScissorsGame: React.FC = () => {
   const { sdk } = useFrame();
