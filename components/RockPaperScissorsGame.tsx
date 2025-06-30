@@ -1,15 +1,22 @@
 
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GameChoice, GameResult, GameState, GameRound } from '@/types/game';
 import { getRandomChoice, determineWinner, getResultMessage, getResultColor } from '@/lib/game-logic';
 import { generateId } from '@/lib/utils';
 import GameChoiceComponent from './GameChoice';
 import ScoreBoard from './ScoreBoard';
+import { useFrame } from '@farcaster/frame-sdk/react';
 
 const RockPaperScissorsGame: React.FC = () => {
+  const { sdk } = useFrame();
+
+  useEffect(() => {
+    sdk.actions.ready();
+  }, [sdk]);
+
   const [gameState, setGameState] = useState<GameState>({
     playerChoice: null,
     computerChoice: null,
@@ -293,3 +300,5 @@ const RockPaperScissorsGame: React.FC = () => {
 };
 
 export default RockPaperScissorsGame;
+
+
