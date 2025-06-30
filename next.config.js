@@ -50,4 +50,8 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  // Add this:
+  output: 'standalone', // or 'export' if static
+  skipTrailingSlashRedirect: true,
+};
